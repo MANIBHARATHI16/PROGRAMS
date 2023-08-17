@@ -1,0 +1,48 @@
+package demo;
+import java.util.*;
+public class anagram {
+    public static void main(String[] args) {
+    	char temp=0;
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter the String 1:");
+      String str1=sc.nextLine();
+      System.out.println("Enter the String 2:");
+      String str2=sc.nextLine();
+      str1=str1.toLowerCase();
+      str2=str2.toLowerCase();
+        str1 = str1.replace(" ","");
+        str2 = str2.replace(" ","");
+      if(str1.length()==str2.length())
+      {
+        char ch1[]=str1.toCharArray();
+        char ch2[]=str2.toCharArray();
+        for(int i=0;i<ch1.length;i++){
+            for(int j=i+1;j<ch1.length;j++){
+                if(ch1[i]>ch1[j]){
+                    temp=ch1[i];
+                    ch1[i]=ch1[j];
+                    ch1[j]=temp;
+                }
+            }
+        }
+        for(int i=0;i<ch2.length;i++){
+            for(int j=i+1;j<ch2.length;j++){
+                if(ch2[i]>ch2[j]){
+                    temp=ch2[i];
+                    ch2[i]=ch2[j];
+                    ch2[j]=temp;
+                }
+            }
+        }
+        if(Arrays.equals(ch1,ch2)){
+          System.out.print("Anagram");
+        }
+        else{
+          System.out.print("NOT Anagram");
+        }
+      }
+      else{
+        System.out.print("NOT Anagram");
+      }
+  }
+}
